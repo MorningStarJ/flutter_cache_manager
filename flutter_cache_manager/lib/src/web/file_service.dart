@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:clock/clock.dart';
 import 'package:flutter_cache_manager/src/web/mime_converter.dart';
 import 'package:http/http.dart' as http;
+import 'package:cupertino_http/cupertino_http.dart' as cupertino_http;
+import 'package:cronet_http/cronet_http.dart' as cronet_http;
 
 ///Flutter Cache Manager
 ///Copyright (c) 2019 Rene Floor
