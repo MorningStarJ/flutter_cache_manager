@@ -33,8 +33,8 @@ class HttpFileService extends FileService {
     http.Client? client;
 
     if (Platform.isIOS || Platform.isMacOS) {
-      final config = URLSessionConfiguration.defaultSessionConfiguration();
-      client = CupertinoClient.fromSessionConfiguration(config);
+      final config = cupertino_http.URLSessionConfiguration.defaultSessionConfiguration();
+      client = cupertino_http.CupertinoClient.fromSessionConfiguration(config);
     } else if (Platform.isAndroid) {
       final engine = cronet_http.CronetEngine.build();
       client =
