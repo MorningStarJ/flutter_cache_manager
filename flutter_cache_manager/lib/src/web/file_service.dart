@@ -25,7 +25,22 @@ class HttpFileService extends FileService {
   final http.Client _httpClient;
 
   HttpFileService({http.Client? httpClient})
-      : _httpClient = httpClient ?? http.Client();
+      : _httpClient = httpClient ?? _createDefaultClient();
+
+  static http.Client _createDefaultClient() {
+    http.Client? client;
+
+    if (Platform.isIOS || Platform.isMacOS) {
+      final config = URLSessionConfiguration.defaultSessionConfiguration();
+      client = CupertinoClient.fromSessionConfiguration(config);
+    } else if (Platform.isAndroid) {
+      final engine = cronet_http.CronetEngine.build();
+      client =
+          cronet_http.CronetClient.fromCronetEngine(engine, closeEngine: true);
+    }
+
+    return client ?? http.Client();
+  }
 
   @override
   Future<FileServiceResponse> get(String url,
