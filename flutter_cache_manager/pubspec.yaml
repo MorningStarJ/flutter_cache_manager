@@ -15,6 +15,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.2
+  cronet_http: ^1.4.0
+  cupertino_http: ^2.2.0
   path: ^1.9.0
   path_provider: ^2.1.4
   rxdart: '>=0.27.7 <0.29.0'
